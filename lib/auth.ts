@@ -87,10 +87,16 @@ export function generateReferralCode(): string {
 }
 
 // Discord OAuth configuration
+const getBaseUrl = () => {
+  return process.env.NEXTAUTH_URL || process.env.SITE_URL || 'http://localhost:3000';
+};
+
 export const discordConfig = {
   clientId: process.env.DISCORD_CLIENT_ID!,
   clientSecret: process.env.DISCORD_CLIENT_SECRET!,
-  redirectUri: process.env.DISCORD_REDIRECT_URI || 'http://localhost:3000/api/auth/discord/callback',
+  get redirectUri() {
+    return `${getBaseUrl()}/api/auth/discord/callback`;
+  },
   scopes: ['identify', 'email'],
 };
 
