@@ -87,10 +87,12 @@ export function generateReferralCode(): string {
 }
 
 // Discord OAuth configuration
+const SITE_URL = 'https://fivehub.playahosting.fr';
+
 export const discordConfig = {
   clientId: process.env.DISCORD_CLIENT_ID!,
   clientSecret: process.env.DISCORD_CLIENT_SECRET!,
-  redirectUri: process.env.DISCORD_REDIRECT_URI || 'http://localhost:3000/api/auth/discord/callback',
+  redirectUri: `${SITE_URL}/api/auth/discord/callback`,
   scopes: ['identify', 'email'],
 };
 

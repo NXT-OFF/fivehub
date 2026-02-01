@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   Trophy,
   Medal,
@@ -9,7 +8,6 @@ import {
   Download,
   Upload,
   Heart,
-  TrendingUp,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -17,6 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { formatNumber } from "@/lib/utils";
 
 const mockTopUploaders = [
   {
@@ -283,7 +282,7 @@ export default function LeaderboardPage() {
                     </p>
                     <p className="text-muted-foreground">
                       <Download className="w-4 h-4 inline mr-1" />
-                      {mockTopUploaders[1].downloads_received.toLocaleString()}{" "}
+                      {formatNumber(mockTopUploaders[1].downloads_received)}{" "}
                       DL
                     </p>
                   </div>
@@ -315,7 +314,7 @@ export default function LeaderboardPage() {
                     </p>
                     <p className="text-muted-foreground">
                       <Download className="w-4 h-4 inline mr-1" />
-                      {mockTopUploaders[0].downloads_received.toLocaleString()}{" "}
+                      {formatNumber(mockTopUploaders[0].downloads_received)}{" "}
                       DL
                     </p>
                     <p className="text-yellow-400">
@@ -348,7 +347,7 @@ export default function LeaderboardPage() {
                     </p>
                     <p className="text-muted-foreground">
                       <Download className="w-4 h-4 inline mr-1" />
-                      {mockTopUploaders[2].downloads_received.toLocaleString()}{" "}
+                      {formatNumber(mockTopUploaders[2].downloads_received)}{" "}
                       DL
                     </p>
                   </div>
@@ -385,7 +384,7 @@ export default function LeaderboardPage() {
                       </span>
                       <span className="flex items-center gap-1">
                         <Download className="w-4 h-4" />
-                        {user.downloads_received.toLocaleString()}
+                        {formatNumber(user.downloads_received)}
                       </span>
                       <span className="flex items-center gap-1">
                         <Star className="w-4 h-4 text-yellow-400" />
@@ -424,7 +423,7 @@ export default function LeaderboardPage() {
                     <div className="flex items-center gap-6 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <Download className="w-4 h-4" />
-                        {resource.downloads.toLocaleString()}
+                        {formatNumber(resource.downloads)}
                       </span>
                       <span className="flex items-center gap-1">
                         <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
@@ -463,7 +462,7 @@ export default function LeaderboardPage() {
                     <div className="flex items-center gap-6 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <Download className="w-4 h-4" />
-                        {user.downloads.toLocaleString()}
+                        {formatNumber(user.downloads)}
                       </span>
                       <span className="flex items-center gap-1">
                         <Heart className="w-4 h-4 text-pink-400" />
